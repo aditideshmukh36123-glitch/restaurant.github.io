@@ -1,0 +1,367 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #2f2f2f; background: #ffffff; scroll-behavior: smooth; }
+
+/* Colors */
+:root {
+  --primary: #2f2f2f;    /* Charcoal */
+  --secondary: #e63946;  /* Tomato Red */
+  --accent: #ffb703;     /* Golden Yellow */
+  --coffee: #3e2723;     /* Dark Coffee Brown */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--coffee);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .logo { font-size: 1.5rem; font-weight: bold; }
+.navbar nav { display: flex; }
+.navbar nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.navbar nav a:hover { color: var(--accent); }
+
+/* Hamburger Icon */
+.menu-toggle { display: none; font-size: 2rem; cursor: pointer; }
+
+/* Hero Video Section */
+.video-section { position: relative; height: 90vh; overflow: hidden; }
+.video-section video { width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); transition: transform 0.5s; }
+.video-section:hover video { transform: scale(1.1); }
+.video-overlay {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; color: #fff; padding: 0 15px;
+}
+.video-overlay h1 { font-size: 3rem; margin-bottom: 15px; animation: fadeInUp 1.5s ease; }
+.video-overlay p { font-size: 1.4rem; font-style: italic; color: var(--accent); animation: fadeInUp 2.5s ease; }
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--coffee);
+  letter-spacing: 1px;
+  position: relative;
+}
+.section-header .underline {
+  width: 80px;
+  height: 4px;
+  background: var(--coffee);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.section-header .underline.accent {
+  background: var(--accent);
+}
+
+/* About */
+.about { 
+  padding: 60px 20px; 
+  text-align: center; 
+  max-width: 900px; 
+  margin: 30px auto; 
+  background: #fdfaf6; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+}
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--primary);
+  text-align: center;
+  padding: 0 15px;
+  animation: fadeInText 1s ease-in-out;
+}
+
+/* Specials */
+.specials { text-align: center; padding: 50px 20px; background: #fff; }
+.special-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Cards */
+.item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.item img { width: 100%; border-radius: 10px; }
+.item h3 { color: var(--secondary); }
+
+/* Flip Cards (Optional if you integrate) */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+.flip-card-inner.flipped { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.flip-card-front { background: #fff; }
+.flip-card-front img { width: 100%; border-radius: 10px; }
+.flip-card-front h3 { margin: 10px 0; color: var(--secondary); }
+.flip-card-back { background: #fff8e1; color: var(--primary); transform: rotateY(180deg); }
+.flip-card-back p { font-size: 0.9rem; margin-bottom: 15px; }
+.flip-card-back .add-cart {
+  background: var(--accent);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.flip-card-back .add-cart:hover { background: var(--secondary); }
+
+/* Badge Styles */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+}
+.badge.new { background: #ff6f61; }
+.badge.bestseller { background: #ffb703; }
+.badge.spicy { background: #e63946; }
+
+/* Testimonials */
+.testimonials { padding: 50px 20px; text-align: center; }
+.reviews blockquote {
+  background: #fff8e1;
+  margin: 10px auto;
+  padding: 15px;
+  border-left: 5px solid var(--secondary);
+  border-radius: 5px;
+  width: 70%;
+  font-style: italic;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideIn 1s forwards;
+  animation-delay: 0.3s;
+}
+
+/* Footer */
+footer {
+  background: var(--coffee);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+footer a { color: var(--accent); }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+  }
+  .navbar nav.show { right: 0; }
+  .navbar nav a {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+  .navbar nav a:hover { color: var(--secondary); }
+  body.menu-open::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+  .video-section { height: 70vh; }
+  .video-overlay h1 { font-size: 2rem; }
+  .video-overlay p { font-size: 1rem; }
+  .reviews blockquote { width: 90%; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg) rotateZ(2deg); /* rotate effect */
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.flip-card-front {
+  background: #fff;
+}
+
+.flip-card-front img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.flip-card-front h3 {
+  margin: 10px 0;
+  color: var(--secondary);
+}
+
+.flip-card-back {
+  background: #fff8e1;
+  color: var(--primary);
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.flip-card-back .add-cart {
+  background: var(--accent);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.flip-card-back .add-cart:hover {
+  background: var(--secondary);
+}
+
+/* Badge Styles */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.badge.new { background: #ff6f61; }
+.badge.bestseller { background: #ffb703; }
+.badge.spicy { background: #e63946; }
+
+/* Adjust grid for flip cards */
+.special-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}

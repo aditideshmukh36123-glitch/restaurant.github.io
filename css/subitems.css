@@ -1,0 +1,114 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f7f4;
+  color: #2f2f2f;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #3e2723;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.navbar a:hover { color: #ffb703; }
+
+/* Sub-items Section */
+.subitems-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.subitems-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #e63946;
+}
+
+/* Sub-items Grid */
+.subitems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Sub-item Card */
+.subitem-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.subitem-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.subitem-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.subitem-card h3 {
+  color: #e63946;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.subitem-card p {
+  color: #2f2f2f;
+  margin: 5px 0;
+}
+
+.subitem-card button.add-cart {
+  margin-top: 12px;
+  background: #ffb703;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.subitem-card button.add-cart:hover {
+  background: #e63946;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subitems-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .subitem-card img { height: 160px; }
+}
+
+@media (max-width: 480px) {
+  .subitems-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .subitem-card img { height: 140px; }
+}
