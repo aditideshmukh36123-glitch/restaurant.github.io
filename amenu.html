@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Cozy Café</title>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <!-- Title Bar / Navbar -->
+  <header class="navbar">
+    <div class="logo">☕ Cozy Café</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="amenu.html">Menu</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Back Button -->
+  <div class="back-button">
+    <button onclick="window.location.href='index.html'">← Back to Home</button>
+  </div>
+
+  <!-- Menu Section -->
+  <section class="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-categories">
+
+      <div class="category-card" onclick="goToSubitems('pizza')">
+        <img src="images/pizza.jpg" alt="Pizza">
+        <h3>Pizza</h3>
+      </div>
+
+      <div class="category-card" onclick="goToSubitems('pasta')">
+        <img src="images/pasta.jpg" alt="Pasta">
+        <h3>Pasta</h3>
+      </div>
+
+      <div class="category-card" onclick="goToSubitems('coffee')">
+        <img src="images/coffee.jpg" alt="Coffee">
+        <h3>Coffee</h3>
+      </div>
+
+      <div class="category-card" onclick="goToSubitems('burger')">
+        <img src="images/burger.jpg" alt="Burger">
+        <h3>Burger</h3>
+      </div>
+
+      <div class="category-card" onclick="goToSubitems('noodles')">
+        <img src="images/noodles.jpg" alt="Noodles">
+        <h3>Noodles</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
